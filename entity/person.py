@@ -20,12 +20,12 @@ class Person:
 
     @property
     def name(self):
-        if re.match(r"^[a-z A-Z/s]{3,30}$", self._name):
-            return self._name
+        return self._name
 
     @name.setter
     def name(self,name):
-        self._name = name
+        if re.match(r"^[a-z A-Z/s]{3,30}$",name):
+            self._name = name
 
     @property
     def family(self):
@@ -33,7 +33,8 @@ class Person:
 
     @family.setter
     def family(self,family):
-        self._family = family
+        if re.match(r"^[a-z A-Z/s]{3,30}$", family):
+            self._family = family
 
     @property
     def username(self):
@@ -41,7 +42,8 @@ class Person:
 
     @username.setter
     def username(self,username):
-        self._username = username
+        if re.match(r"^[a-z A-Z/s]{3,30}$", username):
+            self._username = username
 
     @property
     def password(self):
@@ -49,7 +51,8 @@ class Person:
 
     @password.setter
     def password(self,password):
-        self._password = password
+        if re.match(r"^(?=.*[a-zA-Z]{2}.*)[a-zA-Z0-9]{6,12}$", password):
+            self._password = password
 
     @property
     def phone(self):
@@ -57,7 +60,8 @@ class Person:
 
     @phone.setter
     def phone(self,phone):
-        self._phone = phone
+        if re.match(r"^[0-9]{11}$",phone):
+            self._phone = phone
 
 
 
