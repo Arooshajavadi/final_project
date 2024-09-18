@@ -1,7 +1,9 @@
 from entity.person import Person
+
+
 class Teacher(Person):
-    def __init__(self,name,family,username,password,phone,skill):
-        Person.__init__(self,name,family,username,password,phone)
+    def __init__(self, name, family, username, password, phone, skill):
+        Person.__init__(self, name, family, username, password, phone)
         self.skill = skill
 
     @property
@@ -9,5 +11,5 @@ class Teacher(Person):
         return self._skill
 
     @skill.setter
-    def skill(self,skill):
+    def skill(self, skill):
         self._skill = skill
