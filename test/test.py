@@ -15,7 +15,8 @@ from models.teacher import Teacher
 # std.id = 1222
 # print(std.id)
 
-tea = Teacher(6, "Ali", "Javadi", "ali12233", "ali123", "09111111", "python")
-print(tea)
-tea.phone = "09123456789"
-print(tea.phone)
+# tea = Teacher(6, "Ali", "Javadi", "ali12233", "ali123", "09111111", "python")
+# print(tea)
+# tea.phone = "09123456789"
+# print(tea.phone)
+
