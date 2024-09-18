@@ -3,8 +3,8 @@ import re
 
 
 class Student(Person):
-    def __init__(self, name, family, username, password, phone, grade):
-        Person.__init__(self, name, family, username, password, phone)
+    def __init__(self, id, name, family, username, password, phone, grade):
+        Person.__init__(self, id, name, family, username, password, phone)
         self.grade = grade
 
     @property
