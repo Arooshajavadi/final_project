@@ -1,4 +1,4 @@
-from entity.person import Person
+from models.person import Person
 import re
 
 
