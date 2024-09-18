@@ -2,7 +2,7 @@ import re
 
 
 class Person:
-    def __init__(self,id,name,family,username,password,phone):
+    def __init__(self, id, name, family, username, password, phone):
         self.id = id
         self.name = name
         self.family = family
@@ -15,7 +15,7 @@ class Person:
         return self._id
 
     @id.setter
-    def id(self,id):
+    def id(self, id):
         self._id = id
 
     @property
@@ -23,8 +23,8 @@ class Person:
         return self._name
 
     @name.setter
-    def name(self,name):
-        if re.match(r"^[a-z A-Z/s]{3,30}$",name):
+    def name(self, name):
+        if re.match(r"^[a-z A-Z/s]{3,30}$", name):
             self._name = name
 
     @property
@@ -32,7 +32,7 @@ class Person:
         return self._family
 
     @family.setter
-    def family(self,family):
+    def family(self, family):
         if re.match(r"^[a-z A-Z/s]{3,30}$", family):
             self._family = family
 
@@ -41,7 +41,7 @@ class Person:
         return self._username
 
     @username.setter
-    def username(self,username):
+    def username(self, username):
         if re.match(r"^[a-z A-Z/s]{3,30}$", username):
             self._username = username
 
@@ -50,7 +50,7 @@ class Person:
         return self._password
 
     @password.setter
-    def password(self,password):
+    def password(self, password):
         if re.match(r"^(?=.*[a-zA-Z]{2}.*)[a-zA-Z0-9]{6,12}$", password):
             self._password = password
 
@@ -59,11 +59,8 @@ class Person:
         return self._phone
 
     @phone.setter
-    def phone(self,phone):
-        if re.match(r"^[0-9]{11}$",phone):
+    def phone(self, phone):
+        if re.match(r"^[0-9]{11}$", phone):
             self._phone = phone
-
-
-
-
-
+    def __str__(self):
+        return f"{self.id} {self.name} {self.family} {self.username} {self.phone}"
