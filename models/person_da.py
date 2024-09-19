@@ -1,7 +1,5 @@
 import mysql.connector
 
-from models.person import Person
-
 
 class PersonDa:
     def connect(self):
@@ -35,31 +33,39 @@ class PersonDa:
         self.connect()
         self.cursor.execute('SELECT * FROM person')
         persons = self.cursor.fetchall()
-        person_list = []
-        for person in persons:
-            person_list.append(Person(*person))
+        if persons:
+            person_list = []
+            for person in persons:
+                person_list.append(Person(*person))
+            return person_list
         self.disconnect(False)
-        return person_list
+
 
     def find_by_id(self, id):
         self.connect()
         self.cursor.execute('SELECT * FROM person WHERE id = %s', [id])
         person = self.cursor.fetchone()
-        persons = Person(*person)
+        if person:
+            persons = Person(*person)
+            return persons
         self.disconnect(False)
 
     def find_by_username(self, username):
         self.connect()
         self.cursor.execute('SELECT * FROM person WHERE username = %s', [username])
         person = self.cursor.fetchone()
-        persons = Person(*person)
+        if person:
+            persons = Person(*person)
+            return persons
         self.disconnect(False)
 
     def find_by_username_and_pass(self, username, password):
         self.connect()
         self.cursor.execute('SELECT * FROM person WHERE username = %s AND password = %s', [username, password])
         person = self.cursor.fetchone()
-        persons = Person(*person)
+        if person:
+            persons = Person(*person)
+            return persons
         self.disconnect(False)
-        return persons
+
 # connect database
