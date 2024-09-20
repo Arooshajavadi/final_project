@@ -1,6 +1,7 @@
 from models.person import Person
 from models.student import Student
 from models.teacher import Teacher
+from controller.person_controller import PersonController
 
 # pp1 = Person(1, "Ali", "Javadi", "alij", "ali123", "09112233410")
 # pprint(p1)
@@ -19,4 +20,7 @@ from models.teacher import Teacher
 # print(tea)
 # tea.phone = "09123456789"
 # print(tea.phone)
+
+# PersonController.save(1, "Ali", "Alipour", "Ali", "Ali123")
+# print(PersonController.save(1, "Ali", "Alipour", "Ali", "Ali123"))
 
