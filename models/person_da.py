@@ -1,4 +1,5 @@
 import mysql.connector
+from models.person import Person
 
 
 class PersonDa:
