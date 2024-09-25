@@ -1,6 +1,5 @@
 import mysql.connector
-
-from models import student
+from models.student import Student
 
 
 class StudentDa:
