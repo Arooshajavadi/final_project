@@ -53,7 +53,7 @@ class PersonController:
             return False, str(e)
 
     @classmethod
-    def find_by_username_and_pass(cls, username, password):
+    def find_by_username_and_password(cls, username, password):
         try:
             return True, cls.person_da.find_by_username_and_pass(username, password)
         except Exception as e:
