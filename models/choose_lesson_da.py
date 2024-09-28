@@ -1,7 +1,7 @@
 import mysql.connector
 from models.choose_lesson import Chooselesson
 
-class choosing_da:
+class ChoosingDa:
 
   def connect():
     pass
