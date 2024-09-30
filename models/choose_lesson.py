@@ -1,3 +1,4 @@
+import re 
 
 
 class ChooseLesson:
@@ -28,7 +29,7 @@ class ChooseLesson:
     @id.setter
     def id(self, value):
         self._id = value
-        print("Set", self._name)
+        print("Set", self._username)
         
     @property
     def username(self):
@@ -36,8 +37,9 @@ class ChooseLesson:
 
     @username.setter
     def username(self, value):
-        self._username = value
-        print("Set", self._name)
+        if re.match(r"^[a-zA-Z0-9]{3,20}$", value):
+            self._username = value
+            print("Set", self._username)
 
     @property
     def password(self):
@@ -45,7 +47,10 @@ class ChooseLesson:
     
     @password.setter
     def password(self, value):
-        self._password = value
+        if re.match(r"^(?=.*[a-zA-Z]{2}.*)[a-zA-Z0-9]{6,12}$", value):
+            self._password = value
+            print("Set", self._username)
+
 
     @property
     def teacher(self):
@@ -53,7 +58,9 @@ class ChooseLesson:
     
     @teacher.setter
     def teacher(self, value):
-        self._teacher = value
+        if re.match(r"^[a-zA-Z]{3,20}$", value):
+            self._teacher = value
+            print("Set", self._username)
 
     @property
     def lesson(self):
@@ -61,6 +68,6 @@ class ChooseLesson:
     
     @lesson.setter
     def lesson(self, value):
-        self._lesson = value
-
-#write valids
+        if re.match(r"^[a-zA-Z0-9]{3,20}$", value):
+            self._lesson = value
+            print("Set", self._username)
