@@ -1,9 +1,8 @@
 
 
 class ChooseLesson:
-    def __init__(self, name, family, username, password, teacher, lesson):
-        self._name = name
-        self._family = family
+    def __init__(self, id, username, password, teacher, lesson):
+        self._id = id
         self._username = username
         self._password = password
         self._teacher = teacher
@@ -14,13 +13,13 @@ class ChooseLesson:
             {self._lesson}"
 
     def save(self):
-        print("Save", self._name)
+        print("Save", self._username)
 
     def edit(self):
-        print("Edit", self._name)
+        print("Edit", self._username)
 
     def remove(self):
-        print("Remove", self._name)
+        print("Remove", self._username)
 
     @property
     def id(self):
@@ -30,25 +29,7 @@ class ChooseLesson:
     def id(self, value):
         self._id = value
         print("Set", self._name)
-
-    @property
-    def name(self):
-        return self._name
-
-    @name.setter
-    def name(self, value):
-        self._name = value
-        print("Set", self._name)
-
-    @property
-    def family(self):
-        return self._family
-
-    @family.setter
-    def family(self, value):
-        self._family = value
-        print("Set", self._name)
-
+        
     @property
     def username(self):
         return self._username
