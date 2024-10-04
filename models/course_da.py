@@ -1,6 +1,7 @@
 import mysql.connector
 from models.course import ChooseLesson
 
+
 class ChoosingDa:
 
      def connect(self):
