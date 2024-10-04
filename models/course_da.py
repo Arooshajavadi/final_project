@@ -5,7 +5,7 @@ from models.course import ChooseLesson
 class ChoosingDa:
 
      def connect(self):
-        self.connection = mysql.connector.connect(database="TEST")
+        self.connection = mysql.connector.connect(database="lesson")
         self.cursor = self.connection.cursor()
 
     def disconnect(self, commit=True):
