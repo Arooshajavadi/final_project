@@ -5,7 +5,7 @@ from models.course import ChooseLesson
 class ChoosingDa:
 
      def connect(self):
-        self.connection = mysql.connector.connect(database="lessonn")
+        self.connection = mysql.connector.connect(database="course")
         self.cursor = self.connection.cursor()
 
     def disconnect(self, commit=True):
@@ -16,18 +16,18 @@ class ChoosingDa:
 
      def save(self, person):
         self.connect()
-        self.cursor.execute('INSERT INTO lesson (name, family, username, password, phone) VALUES (%s,%s,%s,%s,%s)',
-                            [person.name, person.family, person.username, person.password, person.phone])
+        self.cursor.execute('INSERT INTO course (id, username, password, title, teacher, code) VALUES (%s,%s,%s,%s,%s,%s)',
+                            [person.id, person.username, person.password, person.title, person.teacher, person.code])
         self.disconnect(True)
 
     def edit(self, person):
         self.connect()
-        self.cursor.execute('UPDATE lesson SET name = %s, family = %s, username = %s, password = %s, phone = %s WHERE id=%s',
-                            [person.name, person.family, person.username, person.password, person.phone])
+        self.cursor.execute('UPDATE course SET username = %s, password = %s, title = %s, teacher = %s, code = %s WHERE id=%s',
+                            [person.username, person.password, person.title, person.teacher, person.code, person.id])
         self.disconnect(True)
 
     def remove(self, id):
         self.connect()
-        self.cursor.execute('DELETE FROM lesson WHERE id = %s', [id])
+        self.cursor.execute('DELETE FROM course WHERE id = %s', [id])
         self.disconnect(True)
 
