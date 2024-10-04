@@ -5,7 +5,7 @@ from models.course import ChooseLesson
 class ChoosingDa:
 
      def connect(self):
-        self.connection = mysql.connector.connect(database="course")
+        self.connection = mysql.connector.connect(database='course')
         self.cursor = self.connection.cursor()
 
     def disconnect(self, commit=True):
@@ -14,7 +14,7 @@ class ChoosingDa:
         self.cursor.close()
         self.connection.close()
 
-     def save(self, person):
+    def save(self, person):
         self.connect()
         self.cursor.execute('INSERT INTO course (id, username, password, title, teacher, code) VALUES (%s,%s,%s,%s,%s,%s)',
                             [person.id, person.username, person.password, person.title, person.teacher, person.code])
