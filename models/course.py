@@ -1,7 +1,7 @@
 import re 
 
 
-class ChooseLesson:
+class Course:
     def __init__(self, id, username, password, title, teacher, code):
         self._id = id
         self._username = username
@@ -9,9 +9,6 @@ class ChooseLesson:
         self._title = title
         self._teacher = teacher
         self._code = code
-
-        def __str__(self):
-            return f"{self._id}, {self._username}, {self._title}, {self._teacher}, {self._code}"
 
     def save(self):
         print("Save", self._username)
