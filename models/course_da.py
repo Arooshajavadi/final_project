@@ -1,5 +1,5 @@
 import mysql.connector
-from models.course import ChooseCourse, Course
+from models.course import Course
 
 
 class CourseDa:
