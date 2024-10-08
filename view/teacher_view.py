@@ -1,4 +1,3 @@
-from cgitb import reset
 from tkinter import *
 import tkinter.messagebox as msgbox
 from view.component import EntryWithLabel
@@ -59,7 +58,7 @@ class TeacherView:
     def remove_click(self):
         if self.x.get() == 1:
             msgbox.showinfo(title="Remove", message="Removed Successfully")
-            reset()
+            self.reset()
         else:
             msgbox.showerror(title="Remove", message="Please enter correct information")
 
