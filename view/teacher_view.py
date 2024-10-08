@@ -61,3 +61,5 @@ class TeacherView:
             reset()
         else:
             msgbox.showerror(title="Remove", message="Please enter correct information")
+
+print("end")
