@@ -1,5 +1,5 @@
-from view.course_view import CourseView
+from view.login_student import LoginStudent
+#todo: add controller to views and add course view
 
-course_view = CourseView()
 
-#todo: add controller to views and check reset def
+login = LoginStudent()

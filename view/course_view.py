@@ -1,3 +1,4 @@
+from codeop import compile_command
 from tkinter import *
 import tkinter.messagebox as msgbox
 from view.component import EntryWithLabel
