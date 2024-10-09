@@ -1,8 +1,8 @@
 from tkinter import *
 import tkinter.messagebox as msgbox
+from controller.course_controller import CourseController
 from view.component import EntryWithLabel
-# from view.student_view import StudentView
-# from view.teacher_view import TeacherView
+
 
 
 
@@ -34,7 +34,7 @@ class CourseView:
 
     def save_click(self):
         if self.x.get() == 1:
-            print(self.id.get(), self.username.get(), self.password.get(), self.title.get(), self.teacher.get(), self.code.get())
+            CourseController.save(self.id.get(), self.username.get(), self.password.get(), self.title.get(), self.teacher.get(), self.code.get())
             self.reset()
             msgbox.showinfo("Save", "Saved Successfully")
         else:
@@ -44,14 +44,14 @@ class CourseView:
 
     def edit_click(self):
         if self.x.get() == 1:
-            print(self.id.get(), self.username.get(), self.password.get(), self.title.get(), self.teacher.get(), self.code.get())
+            CourseController.edit(self.id.get(), self.username.get(), self.password.get(), self.title.get(), self.teacher.get(), self.code.get())
             self.reset()
             msgbox.showinfo("Edit", "Edited Successfully")
         else:
             msgbox.showerror("Error", "Please press the yes button first")
 
     def remove_click(self):
-        print(self.id.get())
+        CourseController.remove(self.id.get())
         self.reset()
         msgbox.showinfo("Remove", "Removed Successfully")
 

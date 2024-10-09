@@ -1,5 +1,7 @@
 from tkinter import *
 import tkinter.messagebox as msgbox
+
+from controller.student_controller import StudentController
 from view.component import EntryWithLabel
 
 
@@ -42,7 +44,7 @@ class StudentView:
 
     def save_click(self):
         if self.x.get() == 1:
-            print(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(), self.phone.get(), self.grade.get())
+            StudentController.save(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(), self.phone.get(), self.grade.get())
             msgbox.showinfo("Save", "Saved Successfully")
             self.reset()
         else:
@@ -50,7 +52,7 @@ class StudentView:
 
     def edit_click(self):
         if self.x.get() == 1:
-            print(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(), self.phone.get(), self.grade.get())
+            StudentController.edit(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(), self.phone.get(), self.grade.get())
             msgbox.showinfo("Edit", "Edit Successfully")
             self.reset()
         else:
@@ -58,6 +60,7 @@ class StudentView:
 
     def remove_click(self):
         if self.x.get() == 1:
+            StudentController.remove(self.id.get())
             msgbox.showinfo("Remove", "Removed successfully")
             self.reset()
         else:

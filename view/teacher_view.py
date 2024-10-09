@@ -1,6 +1,7 @@
 from tkinter import *
 import tkinter.messagebox as msgbox
 from view.component import EntryWithLabel
+from controller.teacher_controller import TeacherController
 
 
 
@@ -10,7 +11,7 @@ class TeacherView:
         self.window.title("Teacher Profile")
         self.window.geometry("400x550")
 
-        self.id = EntryWithLabel(self.window,"Teacher", 40, 60, variable_type=IntVar, width=30)
+        self.id = EntryWithLabel(self.window,"ID", 40, 60, variable_type=IntVar, width=30)
         self.name = EntryWithLabel(self.window,"Name", 40, 120, width=30)
         self.family = EntryWithLabel(self.window,"Family", 40, 180, width=30)
         self.username = EntryWithLabel(self.window,"Username", 40, 240, width=30)
@@ -41,7 +42,7 @@ class TeacherView:
 
     def save_click(self):
         if self.x.get() == 1:
-            print(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(),self.phone.get(), self.skill.get())
+            TeacherController.save(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(),self.phone.get(), self.skill.get())
             self.reset()
             msgbox.showinfo(title="Save", message="Saved Successfully")
         else:
@@ -49,7 +50,7 @@ class TeacherView:
 
     def edit_click(self):
         if self.x.get() == 1:
-            print(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(),self.phone.get(), self.skill.get())
+            TeacherController.edit(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(),self.phone.get(), self.skill.get())
             self.reset()
             msgbox.showinfo(title="Edit", message="Saved Successfully")
         else:
@@ -57,6 +58,7 @@ class TeacherView:
 
     def remove_click(self):
         if self.x.get() == 1:
+            TeacherController.remove(id=self.id.get())
             msgbox.showinfo(title="Remove", message="Removed Successfully")
             self.reset()
         else:
