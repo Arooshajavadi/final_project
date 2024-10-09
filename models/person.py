@@ -51,7 +51,7 @@ class Person:
 
     @password.setter
     def password(self, password):
-        if re.match(r"^(?=.*[a-zA-Z]{2}.*)[a-zA-Z0-9]{6,12}$", password):
+        if re.match(r"^(?=.*[a-zA-Z]{2}.*)[a-zA-Z0-9]{6,18}$", password):
             self._password = password
 
     @property

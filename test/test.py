@@ -2,6 +2,7 @@ from models.person import Person
 from models.student import Student
 from models.teacher import Teacher
 from view.student_view import StudentView
+from models.teacher_da import TeacherDa
 
 # pp1 = Person(1, "Ali", "Javadi", "alij", "ali123", "09112233410")
 # pprint(p1)
@@ -24,4 +25,6 @@ from view.student_view import StudentView
 # PersonController.save(1, "Ali", "Alipour", "Ali", "Ali123")
 # print(PersonController.save(1, "Ali", "Alipour", "Ali", "Ali123"))
 
-student_view = StudentView()
+# student_view = StudentView()
+# teacher = TeacherDa()
+# teacher.save(1, "Ali, Alipour, Alijjj, Alialoooo")

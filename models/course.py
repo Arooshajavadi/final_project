@@ -46,7 +46,7 @@ class Course:
     
     @password.setter
     def password(self, value):
-        if re.match(r"^(?=.*[a-zA-Z]{2}.*)[a-zA-Z0-9]{6,12}$", value):
+        if re.match(r"^(?=.*[a-zA-Z]{2}.*)[a-zA-Z0-9]{6,18}$", value):
             self._password = value
             print("Set", self._username)
         else:
