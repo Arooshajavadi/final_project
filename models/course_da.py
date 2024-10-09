@@ -1,11 +1,14 @@
-import mysql.connector
+import mariadb
 from models.course import Course
 
 
 class CourseDa:
+    def __init__(self):
+        self.connection = mariadb.connect()
+        self.cursor = self.connection.cursor()
 
     def connect(self):
-        self.connection = mysql.connector.connect(database='course')
+        self.connection = mariadb.connect(database='course', user='root', password='root123',host='127.0.0.1', port=3306)
         self.cursor = self.connection.cursor()
 
     def disconnect(self, commit=True):
@@ -16,24 +19,24 @@ class CourseDa:
 
     def save(self, person):
         self.connect()
-        self.cursor.execute('INSERT INTO course (id, username, password, title, teacher, code) VALUES (%s,%s,%s,%s,%s,%s)',
+        self.cursor.execute('INSERT INTO course.choose (id, username, password, title, teacher, code) VALUES (%s,%s,%s,%s,%s,%s)',
                             [person.id, person.username, person.password, person.title, person.teacher, person.code])
         self.disconnect(True)
 
     def edit(self, person):
         self.connect()
-        self.cursor.execute('UPDATE course SET username = %s, password = %s, title = %s, teacher = %s, code = %s WHERE id=%s',
+        self.cursor.execute('UPDATE course.choose SET username = %s, password = %s, title = %s, teacher = %s, code = %s WHERE id=%s',
                             [person.username, person.password, person.title, person.teacher, person.code, person.id])
         self.disconnect(True)
 
     def remove(self, id):
         self.connect()
-        self.cursor.execute('DELETE FROM course WHERE id = %s', [id])
+        self.cursor.execute('DELETE FROM course.choose WHERE id = %s', [id])
         self.disconnect(True)
 
     def find_all(self):
         self.connect()
-        self.cursor.execute('SELECT * FROM course')
+        self.cursor.execute('SELECT * FROM course.choose')
         courses = self.cursor.fetchall()
         if courses:
             course_list = []
@@ -44,7 +47,7 @@ class CourseDa:
 
     def find_by_id(self, id):
         self.connect()
-        self.cursor.execute('SELECT * FROM course WHERE id = %s', [id])
+        self.cursor.execute('SELECT * FROM course.choose WHERE id = %s', [id])
         course = self.cursor.fetchone()
         if course:
             courses = Course(*course)
@@ -53,7 +56,7 @@ class CourseDa:
 
     def find_by_username(self, username):
         self.connect()
-        self.cursor.execute('SELECT * FROM teacher WHERE username = %s', [username])
+        self.cursor.execute('SELECT * FROM course.choose WHERE username = %s', [username])
         course = self.cursor.fetchone()
         if course:
             courses = Course(*course)
@@ -63,7 +66,7 @@ class CourseDa:
 
     def find_by_code(self, code):
         self.connect()
-        self.cursor.execute('SELECT * FROM course WHERE code = %s', [code])
+        self.cursor.execute('SELECT * FROM course.choose WHERE code = %s', [code])
         course = self.cursor.fetchone()
         if course:
             courses = Course(*course)
