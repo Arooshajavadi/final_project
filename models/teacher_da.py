@@ -1,21 +1,22 @@
 import mariadb
+
 from models.teacher import Teacher
 
 class TeacherDa:
     def __init__(self):
-        self.connection = mariadb.connect()
-        self.cursor = self.connection.cursor()
-
+        self.connect = None
+        self.cursor = None
 
     def connect(self):
-        self.connection = mariadb.connect(host='127.0.0.1', user='root', port='3306', password='root123', database='teacher')
-        self.cursor = self.connection.cursor()
+        self.connect = mariadb.connect(host='127.0.0.1', user='root', port='3306', password='root123', database='teacher')
+        self.cursor = self.connect.cursor()
+
 
     def disconnect(self,commit=True):
         if commit:
-            self.connection.commit()
+            self.connect.commit()
         self.cursor.close()
-        self.connection.close()
+        self.connect.close()
 
     def save(self, teacher):
         self.connect()
@@ -83,4 +84,3 @@ class TeacherDa:
         self.disconnect(False)
 
 
-# connect database

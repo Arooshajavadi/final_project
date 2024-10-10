@@ -41,7 +41,7 @@ class TeacherView:
         
 
     def save_click(self):
-        if self.x.get() == 1:
+        if self.x.get() == 0:
             TeacherController.save(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(),self.phone.get(), self.skill.get())
             self.reset()
             msgbox.showinfo(title="Save", message="Saved Successfully")
@@ -49,7 +49,7 @@ class TeacherView:
             msgbox.showerror(title="Save", message="Please enter correct information")
 
     def edit_click(self):
-        if self.x.get() == 1:
+        if self.x.get() == 0:
             TeacherController.edit(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(),self.phone.get(), self.skill.get())
             self.reset()
             msgbox.showinfo(title="Edit", message="Saved Successfully")
@@ -57,7 +57,7 @@ class TeacherView:
             msgbox.showerror(title="Edit", message="Please enter correct information")
 
     def remove_click(self):
-        if self.x.get() == 1:
+        if self.x.get() == 0:
             TeacherController.remove(id=self.id.get())
             msgbox.showinfo(title="Remove", message="Removed Successfully")
             self.reset()

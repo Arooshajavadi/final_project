@@ -4,18 +4,18 @@ from models.course import Course
 
 class CourseDa:
     def __init__(self):
-        self.connection = mariadb.connect()
-        self.cursor = self.connection.cursor()
+        self.connect = None
+        self.cursor = None
 
     def connect(self):
-        self.connection = mariadb.connect(database='course', user='root', password='root123',host='127.0.0.1', port=3306)
-        self.cursor = self.connection.cursor()
+        self.connect = mariadb.connect(database='course', user='root', password='root123', host='127.0.0.1')
+        self.cursor = self.connect.cursor()
 
     def disconnect(self, commit=True):
         if commit:
-            self.connection.commit()
+            self.connect.commit()
         self.cursor.close()
-        self.connection.close()
+        self.connect.close()
 
     def save(self, person):
         self.connect()

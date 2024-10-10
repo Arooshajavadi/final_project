@@ -3,6 +3,7 @@ from models.student import Student
 from models.teacher import Teacher
 from view.student_view import StudentView
 from models.teacher_da import TeacherDa
+from controller.student_controller import StudentController
 
 # pp1 = Person(1, "Ali", "Javadi", "alij", "ali123", "09112233410")
 # pprint(p1)
@@ -28,3 +29,5 @@ from models.teacher_da import TeacherDa
 # student_view = StudentView()
 # teacher = TeacherDa()
 # teacher.save(1, "Ali, Alipour, Alijjj, Alialoooo")
+
+StudentController.save(1, "Aroosha","Javadi","Aruru","Aroosha123","09054107762",18)

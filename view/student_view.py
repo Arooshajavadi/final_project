@@ -43,7 +43,7 @@ class StudentView:
 
 
     def save_click(self):
-        if self.x.get() == 1:
+        if self.x.get() == 0:
             StudentController.save(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(), self.phone.get(), self.grade.get())
             msgbox.showinfo("Save", "Saved Successfully")
             self.reset()
@@ -51,7 +51,7 @@ class StudentView:
             msgbox.showerror("Error", "Please enter a valid information first")
 
     def edit_click(self):
-        if self.x.get() == 1:
+        if self.x.get() == 0:
             StudentController.edit(self.id.get(), self.name.get(), self.family.get(), self.username.get(), self.password.get(), self.phone.get(), self.grade.get())
             msgbox.showinfo("Edit", "Edit Successfully")
             self.reset()
@@ -59,7 +59,7 @@ class StudentView:
             msgbox.showerror("Error", "Please enter a valid information first")
 
     def remove_click(self):
-        if self.x.get() == 1:
+        if self.x.get() == 0:
             StudentController.remove(self.id.get())
             msgbox.showinfo("Remove", "Removed successfully")
             self.reset()

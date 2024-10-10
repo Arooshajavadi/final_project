@@ -33,7 +33,7 @@ class CourseView:
         self.window.mainloop()
 
     def save_click(self):
-        if self.x.get() == 1:
+        if self.x.get() == 0:
             CourseController.save(self.id.get(), self.username.get(), self.password.get(), self.title.get(), self.teacher.get(), self.code.get())
             self.reset()
             msgbox.showinfo("Save", "Saved Successfully")
@@ -43,7 +43,7 @@ class CourseView:
 
 
     def edit_click(self):
-        if self.x.get() == 1:
+        if self.x.get() == 0:
             CourseController.edit(self.id.get(), self.username.get(), self.password.get(), self.title.get(), self.teacher.get(), self.code.get())
             self.reset()
             msgbox.showinfo("Edit", "Edited Successfully")

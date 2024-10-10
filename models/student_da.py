@@ -3,24 +3,24 @@ from models.student import Student
 
 class StudentDa:
     def __init__(self):
-        self.connection = mariadb.connect()
-        self.cursor = self.connection.cursor()
-
+        self.cursor = None
+        self.connect = None
 
     def connect(self):
-        self.connection = mariadb.connect(database='student', user='root', password='root123', host='127.0.0.1', port=3306)
-        self.cursor = self.connection.cursor()
+        self.connect = mariadb.connect(database='student', user='root', password='root123', host='127.0.0.1', port=3306)
+        self.cursor = self.connect.cursor()
+
 
     def disconnect(self, commit=True):
         if commit:
-            self.connection.commit()
+            self.connect.commit()
         self.cursor.close()
-        self.connection.close()
+        self.connect.close()
 
     def save(self, student):
         self.connect()
-        self.cursor.execute('INSERT INTO student.profile (name, family, username, password, phone, grade) VALUES (%s,%s,%s,%s,%s,%s)',
-                            [student.name, student.family, student.username, student.password, student.phone, student.grade])
+        self.cursor.execute('INSERT INTO student.profile (id, name, family, username, password, phone, grade) VALUES (%s,%s,%s,%s,%s,%s,%s)',
+                            [student.id,student.name, student.family, student.username, student.password, student.phone, student.grade])
         self.disconnect(True)
 
     def edit(self, student):
