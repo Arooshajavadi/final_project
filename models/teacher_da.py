@@ -79,4 +79,3 @@ class TeacherDa:
             return teachers
         self.disconnect(False)
 
-
