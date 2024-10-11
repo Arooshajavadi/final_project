@@ -6,7 +6,7 @@ class TeacherController:
     teacher_da = TeacherDa()
 
     @classmethod
-    def save(cls, id, name, family, username, password, phone, skill):
+    def save(cls, id , name, family, username, password, phone, skill):
         try:
             teacher = Teacher(id, name, family, username, password, phone, skill)
             cls.teacher_da.save(teacher)
