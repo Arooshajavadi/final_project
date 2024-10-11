@@ -4,11 +4,10 @@ from models.teacher import Teacher
 
 class TeacherDa:
     def connection(self):
-        self.connection = mariadb.connect(host='127.0.0.1', password='root123', user='root', database='teacher')
+        self.connection = mariadb.connect(database='teacher', user='root', password='root123', host='127.0.0.1')
         self.cursor = self.connection.cursor()
 
-
-    def disconnect(self,commit=True):
+    def disconnect(self, commit=True):
         if commit:
             self.connection.commit()
         self.cursor.close()
@@ -17,7 +16,7 @@ class TeacherDa:
     def save(self, teacher):
         self.connection()
         self.cursor.execute('INSERT INTO teacher.info (id, name, family, username, password, phone, skill) VALUES (%s,%s,%s,%s,%s,%s,%s)',
-                            [teacher.id, teacher.name, teacher.family, teacher.username, teacher.password, teacher.phone])
+                            [teacher.id, teacher.name, teacher.family, teacher.username, teacher.password, teacher.phone, teacher.skill])
         self.disconnect(True)
 
     def edit(self, teacher):
@@ -41,7 +40,6 @@ class TeacherDa:
                 teacher_list.append(Teacher(*teacher))
             return teacher_list
         self.disconnect(False)
-
 
     def find_by_id(self, id):
         self.connection()
@@ -78,4 +76,3 @@ class TeacherDa:
             teachers = Teacher(*teacher)
             return teachers
         self.disconnect(False)
-

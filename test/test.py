@@ -7,7 +7,7 @@
 # from models.teacher_da import TeacherDa
 #from controller.student_controller import StudentController
 #from controller.course_controller import CourseController
-from controller.teacher_controller import TeacherController
+#from controller.teacher_controller import TeacherController
 
 
 
@@ -42,6 +42,14 @@ from controller.teacher_controller import TeacherController
 # CourseController.remove(2)
 # StudentController.edit(1,"Aroosha","Javadi","Aruru","Aroosha123","09054107762",19)
 
-# todo: error in student databases
 
-TeacherController.save(5, "Aroosha","Javadi","Arooshhha","Aroosha123","09054107762","painting")
+#TeacherController.save(1,"Ahmad","Ahmadi","AhmadAhmadi","AhmadAhmad","0912345678","c+")
+#TeacherController.edit(1,"Ali","Ahmadi","AhmadAhmadi","AhmadAhmad","0912345678","c+")
+#TeacherController.remove(1)
+
+
+
+#StudentController.remove(1)
+#StudentController.edit(1,"Hamid","Javadi","Hamidj","Hamid&","09123456789","10")
+
+#StudentController.save(2,"Hamid","Javadi","Hamidj","Hamid&","09123456789","10")
