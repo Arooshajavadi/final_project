@@ -1,29 +1,29 @@
 import mariadb
-
 from models.teacher import Teacher
+
 
 class TeacherDa:
     def connect(self):
-        self.connect = mariadb.connect(host='127.0.0.1', user='root', port='3306', password='root123', database='teacher')
-        self.cursor = self.connect.cursor()
+        self.connection = mariadb.connect(host='127.0.0.1', password='root123', user='root', database='teacher')
+        self.cursor = self.connection.cursor()
 
 
     def disconnect(self,commit=True):
         if commit:
-            self.connect.commit()
+            self.connection.commit()
         self.cursor.close()
-        self.connect.close()
+        self.connection.close()
 
     def save(self, teacher):
         self.connect()
-        self.cursor.execute('INSERT INTO teacher.profile (name, family, username, password, phone, skill) VALUES (%s,%s,%s,%s,%s,%s)',
+        self.cursor.execute('INSERT INTO teacher.profile (id, name, family, username, password, phone, skill) VALUES (%s,%s,%s,%s,%s,%s,%s)',
                             [teacher.name, teacher.family, teacher.username, teacher.password, teacher.phone])
         self.disconnect(True)
 
     def edit(self, teacher):
         self.connect()
         self.cursor.execute('UPDATE teacher.profile SET name = %s, family = %s, username = %s, password = %s, phone = %s, skill = %s WHERE id=%s',
-                            [teacher.name, teacher.family, teacher.username, teacher.password, teacher.phone, teacher.skill])
+                            [teacher.name, teacher.family, teacher.username, teacher.password, teacher.phone, teacher.skill, teacher.id])
         self.disconnect(True)
 
     def remove(self, id):
