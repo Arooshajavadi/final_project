@@ -1,9 +1,14 @@
-from models.person import Person
-from models.student import Student
-from models.teacher import Teacher
-from view.student_view import StudentView
-from models.teacher_da import TeacherDa
+# from models.person import Person
+# from models.student import Student
+# from models.teacher import Teacher
+# from view.student_view import StudentView
+#from view.course_view import CourseView
+#from view.teacher_view import TeacherView
+# from models.teacher_da import TeacherDa
 from controller.student_controller import StudentController
+#from controller.course_controller import CourseController
+
+
 
 # pp1 = Person(1, "Ali", "Javadi", "alij", "ali123", "09112233410")
 # pprint(p1)
@@ -27,7 +32,12 @@ from controller.student_controller import StudentController
 # print(PersonController.save(1, "Ali", "Alipour", "Ali", "Ali123"))
 
 # student_view = StudentView()
-# teacher = TeacherDa()
-# teacher.save(1, "Ali, Alipour, Alijjj, Alialoooo")
+# teacher = TeacherView()
+# course = CourseView()
 
-StudentController.save(1, "Aroosha","Javadi","Aruru","Aroosha123","09054107762",18)
+
+# CourseController.save(2,"Aroosha","Javadi","Python","Jalallat","12345")
+# CourseController.edit(2,"Sara","Sara5","Python","Jalallat","12345")
+# CourseController.remove(2)
+
+StudentController.save(2, "Aroosha", "Javadi", "Aroosha", "Aroosha123", "09054107762", 18)

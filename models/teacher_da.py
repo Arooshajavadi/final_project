@@ -3,10 +3,6 @@ import mariadb
 from models.teacher import Teacher
 
 class TeacherDa:
-    def __init__(self):
-        self.connect = None
-        self.cursor = None
-
     def connect(self):
         self.connect = mariadb.connect(host='127.0.0.1', user='root', port='3306', password='root123', database='teacher')
         self.cursor = self.connect.cursor()
