@@ -40,4 +40,4 @@ from controller.student_controller import StudentController
 # CourseController.edit(2,"Sara","Sara5","Python","Jalallat","12345")
 # CourseController.remove(2)
 
-StudentController.save(2, "Aroosha", "Javadi", "Aroosha", "Aroosha123", "09054107762", 18)
+StudentController.save(2, "Reza","Rezaii","reza","rezaii","09054107762",19)
