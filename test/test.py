@@ -10,7 +10,6 @@
 #from controller.teacher_controller import TeacherController
 
 
-
 # pp1 = Person(1, "Ali", "Javadi", "alij", "ali123", "09112233410")
 # pprint(p1)
 # pp1.family = "Ahmadi"
